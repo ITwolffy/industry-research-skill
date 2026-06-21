@@ -36,13 +36,15 @@ Use this skill when:
 
 Not every question needs the full framework. Choose the depth before starting:
 
-| Level | When to Use | Scope | Deliverable |
+| Level | When to Use | Scope | Output Format |
 |---|---|---|---|
-| **Quick Scan** | Casual question, initial triage, "is this worth looking into?" | Lifecycle stage + rough market size + 2-3 sentence verdict | 1-2 paragraphs |
-| **Standard** | Investment decision, career move, business entry | All 5 steps + key data + PEST summary | 5-10 page brief |
-| **Deep Dive** | Professional report, due diligence, board presentation | Full framework + valuation + competitors + prosperity indicators | Full report with appendices |
+| **Quick Scan** | Casual question, initial triage, "is this worth looking into?" | Lifecycle stage + rough market size + 2-3 sentence verdict | Reply in conversation only — **do NOT create a file** |
+| **Standard** | Investment decision, career move, business entry | All 5 steps + key data + PEST summary | **MUST create a .md report** using the Report Template below |
+| **Deep Dive** | Professional report, due diligence, board presentation | Full framework + valuation + competitors + prosperity indicators | **MUST create a .md report** with full sections + appendices |
 
-**Signal detection:** If the user says "quickly", "roughly", "at a high level", or asks a yes/no question → Quick Scan. If they ask for "analysis", "report", or "should I invest/enter" → Standard. If they request "comprehensive", "detailed report", or "due diligence" → Deep Dive.
+**Auto-output rule:** For Standard and Deep Dive, always write the report to a markdown file. Name it `[行业名称]行业分析报告.md` in the current working directory. Use the Report Template (see bottom of this skill) as the structure.
+
+**Signal detection:** If the user says "quickly", "roughly", "at a high level", or asks a yes/no question → Quick Scan. If they ask for "analysis", "report", or "should I invest/enter" → Standard. If they request "comprehensive", "detailed report", or "due diligence" → Deep Dive. **If the user explicitly says "生成一份markdown报告", always treat as Standard or above.**
 
 ## The Main Framework
 
@@ -425,9 +427,9 @@ Steps 1-8 are the analysis engine; steps 9-10 are synthesis and delivery.
 
 > **Iterative note:** Steps 2-6 are interdependent — you'll often discover market size data (step 4) while determining the lifecycle stage (step 2), or realize the lifecycle stage differs from your initial judgment after analyzing the competitive landscape (step 6). This is normal. Adjust earlier conclusions as new data emerges.
 
-**For Quick Scan:** Do steps 1, 2, 4 (rough TAM only), and jump to 9-10.
-**For Standard:** All 10 steps.
-**For Deep Dive:** All 10 steps + financial modeling + competitor deep-dives + prosperity dashboard.
+**For Quick Scan:** Steps 1, 2, 4 (rough TAM only), jump to 9-10. Reply in conversation. Do NOT create a file.
+**For Standard:** All 10 steps. **Always write the output to `[行业名称]行业分析报告.md`.**
+**For Deep Dive:** All 10 steps + financial modeling + competitor deep-dives + prosperity dashboard. **Always write to `[行业名称]行业分析报告.md`.**
 
 1. [ ] Define the industry scope (pick a classification standard; identify key chain links)
 2. [ ] Determine penetration rate → identify lifecycle stage (revisit after steps 3-6)
@@ -438,7 +440,7 @@ Steps 1-8 are the analysis engine; steps 9-10 are synthesis and delivery.
 7. [ ] Run PEST analysis for external drivers and headwinds
 8. [ ] Identify 2-3 key prosperity indicators for ongoing tracking
 9. [ ] Synthesize using Pyramid Principle (facts → patterns → insights → core conclusion)
-10. [ ] Present using SCQR framework adapted to audience and depth level
+10. [ ] **Standard/Deep Dive: Write the report to `[行业名称]行业分析报告.md`** using the Report Template
 
 ## Report Template
 
