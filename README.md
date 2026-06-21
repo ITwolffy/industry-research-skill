@@ -1,28 +1,28 @@
-# Industry Research — 行业研究框架
+# 行业研究框架 — Industry Research Skill
 
-A Claude Code skill for rapidly understanding any industry. Derived from 肖璟's *如何快速了解一个行业* (How to Quickly Understand an Industry).
+基于肖璟《如何快速了解一个行业》构建的 Claude Code skill，提供系统化的行业分析框架。
 
-## What This Skill Does
+## 功能概述
 
-When you ask Claude to analyze an industry, this skill provides a systematic 5-step framework:
+当你让 Claude 分析某个行业时，这个 skill 提供一套 5 步分析框架：
 
-1. **Determine lifecycle stage** — using penetration rate + Innovation Diffusion Theory
-2. **Assess feasibility** — business model validation, UE economics, innovation hierarchy
-3. **Size the market** — TAM/SAM/SOM estimation (demand-side, supply-side, matching)
-4. **Evaluate defensiveness** — moat analysis (resource monopoly + network effects)
-5. **Analyze profitability** — competitive landscape (horizontal CRn + vertical value chain)
+1. **判断产业生命周期** — 用渗透率 + 创新扩散理论定位行业所处阶段
+2. **评估商业模式可行性** — 需求验证、单位经济模型、创新层级金字塔
+3. **测算市场规模** — TAM/SAM/SOM 三层口径（需求导向/供给导向/供需匹配）
+4. **分析护城河** — 资源垄断（五要素）+ 网络效应（四关系）
+5. **剖析竞争格局与盈利性** — 横向行业集中度 + 纵向产业链利润分配
 
-Plus: valuation context by lifecycle stage, PEST external factor analysis, and prosperity indicator tracking.
+外加：各阶段估值特征、PEST 外部因素分析、景气度指标追踪。
 
-## Installation
+## 安装方法
 
 ```bash
-# Clone to your Claude Code skills directory
+# 克隆到 Claude Code skills 目录
 mkdir -p ~/.claude/skills
-git clone https://github.com/YOUR_USERNAME/industry-research.git ~/.claude/skills/industry-research
+git clone https://github.com/ITwolffy/industry-research-skill.git ~/.claude/skills/industry-research
 ```
 
-Or manually:
+或手动复制：
 
 ```bash
 mkdir -p ~/.claude/skills/industry-research
@@ -30,81 +30,76 @@ cp SKILL.md ~/.claude/skills/industry-research/
 cp -r references ~/.claude/skills/industry-research/
 ```
 
-## Usage
+## 使用方法
 
-Once installed, Claude will automatically load this skill when you ask questions like:
+安装后，Claude 会在你提出以下类型的问题时自动加载这个 skill：
 
 - "帮我分析一下新能源汽车行业"
 - "半导体行业值得投资吗？"
-- "Understand the cybersecurity market"
-- "Evaluate whether I should enter the fintech space"
+- "网络安全市场的竞争格局怎么样？"
+- "我想转行进入 AI 行业，帮我看看前景"
 
-You can also explicitly invoke it:
+也可以显式调用：
 
 ```
 /industry-research
 ```
 
-### Analysis Depth
+### 分析深度三档
 
-The skill supports three levels:
-
-| Level | Trigger | Output |
+| 深度 | 触发词 | 输出 |
 |---|---|---|
-| **Quick Scan** | "quickly", "roughly", "at a high level" | 1-2 paragraph verdict |
-| **Standard** | "analyze", "report", "should I invest" | 5-10 page brief |
-| **Deep Dive** | "comprehensive", "detailed", "due diligence" | Full report with appendices |
+| **快速扫描** | "快速"、"大致"、"粗略"、"有没有前景" | 1-2 段结论 |
+| **标准分析** | "分析"、"出份报告"、"值得投资吗" | 5-10 页简报 |
+| **深度研究** | "全面"、"详细"、"尽调" | 完整报告含附录 |
 
-## File Structure
+## 文件结构
 
 ```
 industry-research/
-├── SKILL.md                  # Main skill — the 5-step framework
+├── SKILL.md                  # 主 skill（5 步框架，约 500 行）
 ├── references/
-│   └── research-tools.md     # Data sources, search techniques, expert networks, reports
-└── README.md                 # This file
+│   └── research-tools.md     # 数据源、搜索技巧、专家网络、报告筛选、AI 工具
+└── README.md                 # 本文件
 ```
 
-## About the Source Material
+## 关于原书
 
-This skill is based on the book *如何快速了解一个行业* by 肖璟 (Xiao Jing), a former McKinsey research analyst and co-founder of the financial education platform 简七理财.
+本 skill 基于肖璟（简七理财联合创始人、前麦肯锡研究分析师）所著《如何快速了解一个行业》。
 
-The book provides a comprehensive, practitioner-tested methodology for industry research, drawing from:
-- McKinsey's consultant training methodology
-- Investment research practices from top Chinese securities firms
-- Real case studies across multiple industries
+作者结合麦肯锡咨询方法论和国内券商投研实践，提炼了一套适用于所有行业的通用研究框架。全书 13 章，分为 4 个部分：
 
-**Book structure** (13 chapters across 4 parts):
-
-| Part | Content | Chapters |
+| 部分 | 内容 | 章节 |
 |---|---|---|
-| 行研框架篇 | Core framework — lifecycle, feasibility, scalability, defensiveness, profitability, valuation, PEST, prosperity tracking | 1-8 |
-| 行研实战篇 | Full application to the new energy vehicle industry | 9 |
-| 研究方法篇 | Research methodology — hypothesis-driven, MECE, Pyramid Principle, SCQR framework | 10-11 |
-| 研究工具篇 | Research tools — data sources, search engines, expert networks, AI tools | 12-13 |
+| 行研框架篇 | 核心框架：生命周期、可行性、规模性、防守性、盈利性、估值、PEST、景气度 | 1-8 |
+| 行研实战篇 | 以新能源汽车行业为案例，完整演示框架应用 | 9 |
+| 研究方法篇 | 研究方法论：假设驱动、MECE 原则、金字塔原理、SCQR 框架 | 10-11 |
+| 研究工具篇 | 研究工具箱：数据源、搜索引擎技巧、专家网络、研报筛选、生成式 AI | 12-13 |
 
-## Key Concepts
+## 核心概念速览
 
-- **Penetration rate** as the primary lifecycle indicator (15-20% = takeoff, 35-40% = deceleration)
-- **Four analysis dimensions** weighted by lifecycle stage: feasibility → scalability → defensiveness → profitability
-- **Innovation Hierarchy**: Foundation → Middleware → Application layers must mature sequentially
-- **Unit Economics (UE) Model**: Validate profit feasibility at minimum operating unit
-- **Resource Monopoly + Network Effects**: The two moat-building strategies
-- **Capacity Cycle + Inventory Cycle**: Short and medium-term competitive dynamics
-- **PEST with intervention gradients**: Political factors range from verbal encouragement to mandatory adoption
-- **DIKW Model**: Data → Information → Knowledge → Wisdom
-- **Three Information Gaps**: Time gap (institution-dominated), breadth gap (FOMO risk), depth gap (sustainable edge)
-- **预期差 (Expectation Gap)**: Markets trade on gaps between expectations and reality
+- **渗透率**：判断产业生命周期的核心指标（15-20% = 起飞点，35-40% = 减速点）
+- **四维度加权分析**：不同阶段侧重不同——导入期看可行性、成长期看规模性、成熟期看防守性+盈利性
+- **创新层级金字塔**：基础层→中间层→应用层，底层不成熟则上层商业模式是空中楼阁
+- **单位经济模型（UE）**：找到最小运营单元，验证单个单元能否盈利
+- **护城河双轨**：资源垄断（劳动力/土地/资本/技术/数据）+ 网络效应（政府/同行/供应商/客户）
+- **产能周期三阶段**：被动扩产→主动扩产→无序扩产（外来者涌入=见顶信号）
+- **库存周期四阶段**：主动补库→被动补库→主动去库→被动去库
+- **政策梯度**：鼓励政策从弱到强（口头→补贴→直投→强制）+ 限制政策（准入/供给/价格/受众）
+- **货币的三种价格**：购买力（CPI）、利率、汇率——各自影响不同行业
+- **DIKW 模型**：数据→信息→知识→智慧，逐层深入
+- **三种信息差**：时间差（机构主导）、广度差（易 FOMO）、深度差（唯一可持续优势）
+- **预期差**：市场交易的是预期与现实的差距，而非绝对水平
 
-## License
+## 许可证
 
-MIT — feel free to use, modify, and distribute.
+MIT — 自由使用、修改、分发。
 
-## Acknowledgments
+## 致谢
 
-- 肖璟 (Xiao Jing), author of *如何快速了解一个行业*, for the original methodology
-- The Claude Code skills ecosystem
+- 肖璟，《如何快速了解一个行业》作者
+- Claude Code skills 生态
 
-## Contributing
+## 贡献
 
-Found a gap or improvement? PRs welcome. This skill was built through three rounds of review against the source material — if you spot something we missed, open an issue.
+发现遗漏或可改进之处？欢迎提 PR。本 skill 经过三轮对照原书的 review——如果你发现了我们遗漏的内容，请提 issue。
